@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import morgan from "morgan";
 import "express-async-errors";
 
 import connectDB from "./db/connect.js";
@@ -9,6 +10,7 @@ import errorHandler from "./middleware/error-handler.js";
 const app = express();
 dotenv.config();
 
+app.use(morgan("tiny"));
 app.use(express.json());
 
 app.get("/", (req, res) => {
